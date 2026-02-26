@@ -1,5 +1,5 @@
-import { Controller, Get, Inject } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+import { ClientProxy, Payload } from '@nestjs/microservices';
 
 @Controller('users')
 export class UsersController {
@@ -10,6 +10,12 @@ export class UsersController {
 
   @Get()
   getUsers() {
-    return this.client.send('get_users', {});
+    return this.client.send('getUsers', {});
   }
+
+  @Post('create')
+   createUser(@Payload() data:any) {
+     return this.client.send('createUser', data);
+   }
 }
+
