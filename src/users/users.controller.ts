@@ -17,5 +17,20 @@ export class UsersController {
    createUser(@Payload() data:any) {
      return this.client.send('create', data);
    }
+
+   @Post('findOne')
+   findOneUser(@Payload() id:number) {
+     return this.client.send('findOne', id);
+   }
+
+   @Post('remove')
+   removeUser(@Payload() id:number) {
+     return this.client.send('remove', id);
+   }
+
+   @Post('update')
+   updateUser(@Payload() data:any) {
+     return this.client.send('update', data);
+   }
 }
 
