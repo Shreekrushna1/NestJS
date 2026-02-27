@@ -8,14 +8,14 @@ export class UsersController {
     private client: ClientProxy,
   ) {}
 
-  @Get()
+  @Get('findAll')
   getUsers() {
-    return this.client.send('getUsers', {});
+    return this.client.send('findAll', {});
   }
 
   @Post('create')
    createUser(@Payload() data:any) {
-     return this.client.send('createUser', data);
+     return this.client.send('create', data);
    }
 }
 
