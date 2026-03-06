@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ClientProxy, Payload } from '@nestjs/microservices';
+import { SignupUserDto } from 'src/dto/users/signup-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -14,7 +15,7 @@ export class UsersController {
   }
 
   @Post('create')
-   createUser(@Payload() data:any) {
+   createUser(@Payload() data:SignupUserDto) {
      return this.client.send('create', data);
    }
 

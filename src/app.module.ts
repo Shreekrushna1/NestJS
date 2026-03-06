@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { UsersController } from './users/users.controller';
-import { ProductController } from './product/product.controller';
-import { AuthController } from './auth/auth.controller';
+import { UsersController } from './modules/controllers/users/users.controller';
+import { ProductController } from './modules/controllers/product/product.controller';
+import { AuthController } from './modules/controllers/auth/auth.controller';
 import { APP_GUARD } from '@nestjs/core';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 @Module({
   imports: [
     ClientsModule.register([
